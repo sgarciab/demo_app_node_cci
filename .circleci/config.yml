@@ -4,7 +4,7 @@ jobs:
   build:
     working_directory: ~/taskapp
     docker:
-      - image: circleci/node:8.11.1
+      - image: cimg/node:16.13.2
     steps:
       - checkout
       - run:
