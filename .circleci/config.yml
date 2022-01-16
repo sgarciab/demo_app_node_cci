@@ -36,7 +36,7 @@ jobs:
           name: Deploy over SSH
           command:  |
             ssh  ubuntu@44.192.46.214 "sudo rm -rf ./taskapp || true; mkdir taskapp; pm2 stop all || true; pm2 delete all || true;";
-            scp taskapp.zip ubuntu@44.200.21.8:~/taskapp/taskapp.zip;
+            scp taskapp.zip ubuntu@44.192.46.214:~/taskapp/taskapp.zip;
             ssh  ubuntu@44.192.46.214 "ls; cd taskapp; unzip taskapp.zip; pm2 start index.js --name taskapp;";
         # - run:
         #   name: Deploy over SSH
