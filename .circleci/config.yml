@@ -26,7 +26,8 @@ jobs:
       - checkout
       - run:
           name: Deploy over SSH
-          command: ssh -p your_port_number your_user@your_host "cd ../path/to/your/project; git pull; pm2 start index.js";
+          command:  |
+            ssh  ubuntu@44.200.21.8 "ls";
 
 workflows:
   version: 2
