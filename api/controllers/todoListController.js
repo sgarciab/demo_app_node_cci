@@ -1,10 +1,12 @@
 'use strict';
 var tasks = [{
     name : "Nombre1",
-    apellido : "Apellido1"
+    apellido : "Apellido1",
+    nivel : "1"
 },{
     name : "Nombre2",
-    apellido : "Apellido1"
+    apellido : "Apellido1",
+    nivel : "2"
 }]
 exports.list_all_tasks = function(req, res) {
     res.json(tasks)
