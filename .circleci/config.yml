@@ -33,9 +33,9 @@ jobs:
       - run:
           name: Deploy over SSH
           command:  |
-            ssh  ubuntu@44.200.21.8 "rm -rf ./*";
-            scp taskapp.zip ubuntu@44.200.21.8:~/
-            ssh  ubuntu@44.200.21.8 "unzip taskapp.zip";
+            ssh  ubuntu@44.200.21.8 "sudo rm -rf ./taskapp/* !! true";
+            scp taskapp.zip ubuntu@44.200.21.8:~/taskapp
+            ssh  ubuntu@44.200.21.8 "cd taskapp; unzip taskapp.zip";
 
 workflows:
   version: 2
