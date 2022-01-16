@@ -26,13 +26,14 @@ jobs:
       - run:
           name: Zip app
           command:  |
+            pwd
             ls
             zip -r taskapp.zip ./
       - run:
           name: Deploy over SSH
           command:  |
             scp taskapp.zip ubuntu@44.200.21.8:~/
-            ssh  ubuntu@44.200.21.8 "unzip taskapp.zip";
+            ssh  ubuntu@44.200.21.8 "rm -rf ./ ; unzip taskapp.zip";
 
 workflows:
   version: 2
