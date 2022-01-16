@@ -33,8 +33,8 @@ jobs:
       - run:
           name: Deploy over SSH
           command:  |
-            ssh  ubuntu@44.200.21.8 "sudo rm -rf ./taskapp/* !! true";
-            scp taskapp.zip ubuntu@44.200.21.8:~/taskapp
+            ssh  ubuntu@44.200.21.8 "sudo rm -rf ./taskapp/* || true";
+            scp taskapp.zip ubuntu@44.200.21.8:~/taskapp/
             ssh  ubuntu@44.200.21.8 "cd taskapp; unzip taskapp.zip";
 
 workflows:
