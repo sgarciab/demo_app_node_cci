@@ -1,4 +1,6 @@
 
+orbs:
+  ssh-deployment: singularitynet/ssh-deployment@1.1.8
 version: 2.17
 jobs:
   build:
@@ -33,9 +35,16 @@ jobs:
       - run:
           name: Deploy over SSH
           command:  |
-            ssh  ubuntu@44.200.21.8 "nvm install v16.13.2; sudo rm -rf ./taskapp || true; mkdir taskapp; pm2 stop all; pm2 delete all;";
+            ssh  ubuntu@44.200.21.8 "sudo rm -rf ./taskapp || true; mkdir taskapp; pm2 stop all; pm2 delete all;";
             scp taskapp.zip ubuntu@44.200.21.8:~/taskapp/taskapp.zip;
             ssh  ubuntu@44.200.21.8 "ls; cd taskapp; unzip taskapp.zip; pm2 start index.js --name taskapp;";
+        # - run:
+        #   name: Deploy over SSH
+        #   command:  |
+        #     ssh  ubuntu@44.200.21.8 "nvm install v16.13.2; sudo rm -rf ./taskapp || true; mkdir taskapp; pm2 stop all; pm2 delete all;";
+        #     scp taskapp.zip ubuntu@44.200.21.8:~/taskapp/taskapp.zip;
+        #     ssh  ubuntu@44.200.21.8 "ls; cd taskapp; unzip taskapp.zip; pm2 start index.js --name taskapp;";
+
 
 workflows:
   version: 2
