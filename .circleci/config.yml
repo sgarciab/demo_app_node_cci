@@ -17,6 +17,7 @@ jobs:
           paths:
             - ./node_modules
   deploy:
+    working_directory: ~/taskapp
     machine:
       enabled: true
     steps:
@@ -33,7 +34,7 @@ jobs:
           name: Deploy over SSH
           command:  |
             scp taskapp.zip ubuntu@44.200.21.8:~/
-            ssh  ubuntu@44.200.21.8 "rm -rf ./ ; unzip taskapp.zip";
+            ssh  ubuntu@44.200.21.8 "rm -rf ./* ; unzip taskapp.zip";
 
 workflows:
   version: 2
