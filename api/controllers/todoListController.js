@@ -2,11 +2,11 @@
 var tasks = [{
     name : "Nombre1",
     apellido : "Apellido1",
-    nivel : "1"
+    nivel : "10"
 },{
     name : "Nombre2",
     apellido : "Apellido1",
-    nivel : "2"
+    nivel : "20"
 }]
 exports.list_all_tasks = function(req, res) {
     res.json(tasks)
